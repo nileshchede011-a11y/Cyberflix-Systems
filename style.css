@@ -2911,3 +2911,109 @@ section:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px
 
 /* responsive nav */
 @media(max-width:900px){.nav-links{display:none}.nav-actions{margin-left:auto}.navbar{padding:0 18px}.nav-container{padding:0}}
+
+/* ===== CART STORE PRODUCT FIX ===== */
+.product-cart-image {
+    overflow: hidden;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-cart-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+.cart-quantity {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #777;
+}
+.item-price small {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+    color: #777;
+}
+.store-cart-item {
+    min-height: 75px;
+}
+
+/* =========================================================
+   CYBERFLIX HOMEPAGE ENHANCEMENT
+   More content + PC options + counters + subtle motion
+========================================================= */
+.home-intro{display:grid;grid-template-columns:.45fr 1.55fr;gap:50px;padding:90px 5vw;background:#060709;border-bottom:1px solid rgba(255,255,255,.07)}
+.intro-label{color:#e10600;font-size:10px;font-weight:900;letter-spacing:.22em;padding-top:7px}
+.intro-copy h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(45px,6vw,82px);line-height:.88;letter-spacing:-.025em;margin:0;color:#f2f2f2}
+.intro-copy h2 span{color:#e10600}.intro-copy p{max-width:720px;margin:25px 0 0;color:#777d86;font-size:14px;line-height:1.9}
+.full-pc-frame{height:560px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 55%,rgba(225,6,0,.10),transparent 45%),#090b0e}
+.full-pc-frame img{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;object-position:center center;padding:12px 20px;filter:brightness(.78) saturate(1.1) contrast(1.06)}
+.pc-builds-home{padding:100px 5vw;background:#06080a;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.pc-options-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pc-option-card{background:#0b0d10;border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.pc-option-card:hover{transform:translateY(-7px);border-color:rgba(225,6,0,.55);box-shadow:0 22px 55px rgba(0,0,0,.38)}
+.pc-option-featured{border-color:rgba(225,6,0,.25)}
+.pc-option-image{height:300px;background:#090b0e;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.07)}
+.pc-option-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .3s ease}.pc-option-card:hover .pc-option-image img{transform:scale(1.04);filter:saturate(1.1)}
+.pc-option-body{padding:25px}.pc-tier{color:#e10600;font-size:9px;font-weight:900;letter-spacing:.18em}.pc-option-body h3{margin:8px 0 8px;color:#f2f2f2;font-family:'Barlow Condensed',sans-serif;font-size:32px;letter-spacing:.02em}.pc-option-body p{min-height:58px;color:#747a82;font-size:12px;line-height:1.7}.pc-option-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}.pc-option-meta strong{font-family:'Barlow Condensed',sans-serif;font-size:22px;color:#fff}.pc-option-meta a{color:#e10600;font-size:9px;font-weight:900;letter-spacing:.12em}
+.service-strip{display:grid;grid-template-columns:repeat(4,1fr);background:#090b0e;border-bottom:1px solid rgba(255,255,255,.07)}.service-strip>div{padding:35px 30px;border-right:1px solid rgba(255,255,255,.07);transition:background .25s ease}.service-strip>div:last-child{border-right:0}.service-strip>div:hover{background:#0e1115}.service-strip span{color:#e10600;font-family:'Barlow Condensed',sans-serif;font-size:22px}.service-strip h3{margin:18px 0 7px;font-family:'Barlow Condensed',sans-serif;font-size:27px;color:#eee}.service-strip p{color:#6e747d;font-size:11px;line-height:1.7}
+.final-cta{text-align:center;padding:110px 5vw;background:radial-gradient(circle at 50% 45%,rgba(225,6,0,.08),transparent 38%),#050607;border-top:1px solid rgba(255,255,255,.06)}.final-cta>p{color:#e10600;font-size:10px;font-weight:900;letter-spacing:.24em}.final-cta h2{margin:15px 0 28px;font-family:'Barlow Condensed',sans-serif;font-size:clamp(55px,8vw,100px);line-height:.82;color:#f1f1f1}.final-cta h2 span{color:#e10600}.final-cta>div{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.footer-main-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:45px}.footer-brand-block p{max-width:330px}.footer-status{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:#777;font-size:9px;font-weight:800;letter-spacing:.12em}.footer-status i{width:6px;height:6px;border-radius:50%;background:#22e88e;box-shadow:0 0 9px rgba(34,232,142,.5)}.footer-column{display:flex;flex-direction:column;gap:11px}.footer-column h4{margin-bottom:5px;color:#e7e7e7;font-size:10px;letter-spacing:.16em}.footer-column a{color:#727780;font-size:11px;transition:color .2s ease,transform .2s ease}.footer-column a:hover{color:#e10600;transform:translateX(3px)}.footer-feature-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}.footer-feature-row>div{padding:22px 18px;border-right:1px solid rgba(255,255,255,.07)}.footer-feature-row>div:last-child{border-right:0}.footer-feature-row strong{display:block;color:#dfe0e2;font-size:9px;letter-spacing:.12em}.footer-feature-row span{display:block;margin-top:5px;color:#555b63;font-size:9px}
+.reveal-up,.reveal-section{opacity:1}.js-ready .reveal-up,.js-ready .reveal-section{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.js-ready .reveal-up.revealed,.js-ready .reveal-section.revealed{opacity:1;transform:none}.js-ready .reveal-scale{opacity:0;transform:scale(.97);transition:opacity .8s ease,transform .8s ease}.js-ready .reveal-scale.revealed{opacity:1;transform:scale(1)}
+.counter{font-variant-numeric:tabular-nums}.stat-item{transition:background .25s ease}.stat-item:hover{background:rgba(255,255,255,.025)}
+@media (max-width:1100px){.home-intro{grid-template-columns:1fr}.pc-options-grid{grid-template-columns:1fr 1fr}.service-strip{grid-template-columns:1fr 1fr}.footer-main-grid{grid-template-columns:1.5fr 1fr 1fr}.footer-feature-row{grid-template-columns:1fr 1fr}.full-pc-frame{height:500px}}
+@media (max-width:820px){.home-intro,.pc-builds-home{padding-left:20px;padding-right:20px}.pc-options-grid{grid-template-columns:1fr}.pc-option-image{height:320px}.service-strip{grid-template-columns:1fr 1fr}.footer-main-grid{grid-template-columns:1fr 1fr}.full-pc-frame{height:430px}.intro-copy h2{font-size:58px}}
+@media (max-width:520px){.home-intro{padding-top:70px;padding-bottom:70px}.pc-option-image{height:280px}.service-strip,.footer-main-grid,.footer-feature-row{grid-template-columns:1fr}.service-strip>div,.footer-feature-row>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.07)}.full-pc-frame{height:360px;padding:0}.full-pc-frame img{padding:8px 10px}.final-cta{padding:85px 20px}.final-cta h2{font-size:62px}}
+@media (prefers-reduced-motion:reduce){.js-ready .reveal-up,.js-ready .reveal-section,.js-ready .reveal-scale{opacity:1;transform:none;transition:none}.pc-option-card,.pc-option-image img,.footer-column a{transition:none}}
+.premium-component-card::before,.pc-option-card::before,.premium-why-grid>div::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),rgba(225,6,0,.08),transparent 70%);opacity:0;transition:opacity .25s ease}.premium-component-card:hover::before,.pc-option-card:hover::before,.premium-why-grid>div:hover::before{opacity:1}.premium-component-card,.pc-option-card,.premium-why-grid>div{position:relative}
+
+
+/* =========================================================
+   OFFICIAL CYBERFLIX LOGO
+   ========================================================= */
+.brand-logo-link {
+    display: flex !important;
+    align-items: center;
+    width: 205px;
+    height: 56px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.brand-logo-image {
+    display: block;
+    width: 205px !important;
+    height: auto !important;
+    max-width: none !important;
+    object-fit: contain;
+}
+.brand-footer-logo {
+    display: inline-flex;
+    width: min(270px, 100%);
+    margin-bottom: 16px;
+}
+.brand-footer-logo img {
+    width: 270px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 800px) {
+    .brand-logo-link {
+        width: 165px;
+        height: 50px;
+    }
+    .brand-logo-image {
+        width: 165px !important;
+    }
+}
+@media (max-width: 420px) {
+    .brand-logo-link {
+        width: 145px;
+    }
+    .brand-logo-image {
+        width: 145px !important;
+    }
+}
