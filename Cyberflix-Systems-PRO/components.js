@@ -182,6 +182,15 @@ function displayProducts(list = products) {
                     ● ${product.stock}
                 </span>
 
+                <button
+                    class="wishlist-btn"
+                    onclick="toggleWishlist(${product.id})"
+                    title="Add to Wishlist"
+                    type="button"
+                >
+                    ♡
+                </button>
+
                 <img
                     src="${product.image}"
                     alt="${product.name}"
@@ -221,6 +230,7 @@ function displayProducts(list = products) {
                     <button
                         class="add-cart-btn"
                         onclick="addProductToCart(${product.id})"
+                        type="button"
                     >
                         ADD TO CART
                     </button>
@@ -228,6 +238,7 @@ function displayProducts(list = products) {
                     <button
                         class="buy-btn"
                         onclick="buyProduct(${product.id})"
+                        type="button"
                     >
                         BUY
                     </button>
@@ -249,7 +260,7 @@ function displayProducts(list = products) {
 
 function filterProducts(category) {
 
-    currentCategory = category;
+    currentCategory = String(category || "all").toLowerCase();
 
 
     document
@@ -258,18 +269,19 @@ function filterProducts(category) {
 
             btn.classList.toggle(
                 "active",
-                btn.dataset.category === category
+                String(btn.dataset.category || "").toLowerCase() === currentCategory
             );
 
         });
 
 
+    const searchInput =
+        document.getElementById("searchInput");
+
     const search =
-        document
-            .getElementById("productSearch")
-            .value
-            .toLowerCase()
-            .trim();
+        searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
 
 
     applyFilters(search);
@@ -283,7 +295,7 @@ function filterProducts(category) {
 
 function applyFilters(search = "") {
 
-    let result = products;
+    let result = [...products];
 
 
     if (currentCategory !== "all") {
@@ -291,7 +303,7 @@ function applyFilters(search = "") {
         result =
             result.filter(
                 product =>
-                    product.category ===
+                    product.category.toLowerCase() ===
                     currentCategory
             );
 
@@ -472,7 +484,7 @@ function focusSearch() {
 
     const input =
         document.getElementById(
-            "productSearch"
+            "searchInput"
         );
 
 
@@ -575,6 +587,104 @@ function showStoreMessage(text) {
 
 
 /* =========================================================
+   WISHLIST
+========================================================= */
+
+async function toggleWishlist(productId) {
+
+    const user =
+        JSON.parse(
+            localStorage.getItem(
+                "cyberflixUser"
+            )
+        );
+
+
+    if (!user) {
+
+        showStoreMessage(
+            "Please login to use Wishlist"
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "login.html";
+
+        }, 700);
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/wishlist",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    credentials: "include",
+
+                    body: JSON.stringify({
+                        productId:
+                            String(productId)
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Wishlist failed"
+            );
+
+        }
+
+
+        if (data.action === "added") {
+
+            showStoreMessage(
+                "Added to Wishlist ❤️"
+            );
+
+        } else {
+
+            showStoreMessage(
+                "Removed from Wishlist"
+            );
+
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Wishlist error:",
+            error
+        );
+
+        showStoreMessage(
+            "Unable to update Wishlist"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
    EVENTS
 ========================================================= */
 
@@ -586,6 +696,8 @@ document.addEventListener(
 
         updateCartCount();
 
+
+        /* FILTER BUTTONS */
 
         document
             .querySelectorAll(".filter-btn")
@@ -605,9 +717,11 @@ document.addEventListener(
             });
 
 
+        /* SEARCH */
+
         const searchInput =
             document.getElementById(
-                "productSearch"
+                "searchInput"
             );
 
 
